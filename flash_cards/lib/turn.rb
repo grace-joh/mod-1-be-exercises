@@ -25,7 +25,7 @@ class Turn
     if @string == @card.answer
       "Correct!"
     else
-      "Incorrect.."
+      "Incorrect."
     end
   end
 
