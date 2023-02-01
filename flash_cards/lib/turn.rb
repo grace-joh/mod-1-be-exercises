@@ -1,28 +1,18 @@
 class Turn
-  attr_accessor :string, :card
+  attr_reader :guess, 
+              :card
 
-  #def initialize(string, card_name)
-  def initialize(string, card)
-    @string = string 
-    #@card_name = card_name
-    @card    = card
-    #can i call this attribute(?) card if card is the name of the object I'm trying to use?
+  def initialize(guess, card)
+    @guess = guess 
+    @card  = card
   end
-
-  def guess
-    @string
-  end
-
-  # def card
-  #   @card_name
-  # end
 
   def correct?
-    @string == @card.answer
+    @guess == @card.answer
   end
 
   def feedback
-    if @string == @card.answer
+    if @guess == @card.answer
       "Correct!"
     else
       "Incorrect."
