@@ -24,4 +24,8 @@ class Potluck
     end
     menu
   end
+
+  def ratio(category)
+    (get_all_from_category(category).length / @dishes.length.to_f * 100).round(1)
+  end
 end
