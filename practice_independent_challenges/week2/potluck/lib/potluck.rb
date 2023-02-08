@@ -1,7 +1,7 @@
 require './lib/dish'
 
 class Potluck
-  attr_reader :date, :dishes
+  attr_reader :date, :dishes 
   
   def initialize(date)
     @date = date
@@ -14,5 +14,14 @@ class Potluck
 
   def get_all_from_category(category)
     @dishes.select{ |dish| dish.category == category}
+  end
+
+  def menu
+    menu = Hash.new 
+    @dishes.each {|dish| menu[dish.category] = [] }
+    menu.each do | category, items |
+      menu[category] = get_all_from_category(category).map{ |dish| dish.name }
+    end
+    menu
   end
 end
