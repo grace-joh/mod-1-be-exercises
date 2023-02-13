@@ -8,6 +8,6 @@ class Street
 
   def add_building(building)
     @buildings << building.building_name
-    @buildings.alphabetize
+    @buildings.sort!
   end
 end
