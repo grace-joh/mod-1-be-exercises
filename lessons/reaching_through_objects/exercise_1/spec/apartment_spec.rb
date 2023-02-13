@@ -36,6 +36,21 @@ RSpec.describe Apartment do
       expect(apartment.rooms).to eq([bathroom, laundry, kitchen, bedroom])
     end
 
+    it 'can limit rooms to 4 max' do
+      apartment = Apartment.new
+      bathroom = Room.new("bathroom")
+      laundry = Room.new("laundry")
+      kitchen = Room.new("kitchen")
+      bedroom = Room.new("bedroom")
+      apartment.add_room(bathroom)
+      apartment.add_room(laundry)
+      apartment.add_room(kitchen)
+      apartment.add_room(bedroom)
+      apartment.add_room(Room.new("library"))
+
+      expect(apartment.rooms).to eq([bathroom, laundry, kitchen, bedroom])
+    end
+
     it 'can return rooms alphabetically' do
       apartment = Apartment.new
       bathroom = Room.new("bathroom")

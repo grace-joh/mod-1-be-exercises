@@ -15,7 +15,7 @@ class Apartment
   end
 
   def add_room(room)
-    @rooms << room
+    @rooms << room if @rooms.length < 4
   end
 
   def list_rooms_by_name_alphabetically
