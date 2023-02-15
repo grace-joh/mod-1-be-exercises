@@ -23,4 +23,13 @@ RSpec.describe Customer do
       expect(@chris.pets).to eq([])
     end
   end
+
+  describe '#adopt' do
+    it 'can allow customer to adopt a pet' do
+      @joel.adopt(@samson)
+      @joel.adopt(@lucy)
+
+      expect(@joel.pets).to eq([@samson, @lucy])
+    end
+  end
 end
