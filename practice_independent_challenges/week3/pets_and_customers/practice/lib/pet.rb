@@ -7,4 +7,12 @@ class Pet
     @age = pet_hash[:age]
     @fed = false
   end
+
+  def fed?
+    @fed
+  end
+
+  def feed
+    @fed = true
+  end
 end
