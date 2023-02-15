@@ -19,12 +19,16 @@ RSpec.describe Groomer do
       expect(@furry_tails).to be_a Groomer
       expect(@furry_tails.name).to eq('Furry Tails')
       expect(@furry_tails.customers).to eq([])
+      expect(@furry_tails.services).to eq({})
+      expect(@furry_tails.charges).to eq([])
     end
 
     it 'can initialize another groomer' do
       expect(@friends_furever).to be_a Groomer
       expect(@friends_furever.name).to eq('Friends Furever')
       expect(@friends_furever.customers).to eq([])
+      expect(@friends_furever.services).to eq({})
+      expect(@friends_furever.charges).to eq([])
     end
   end
 
@@ -56,6 +60,27 @@ RSpec.describe Groomer do
 
       expect(@furry_tails.count_by_type('dog')).to eq(1)
       expect(@furry_tails.count_by_type('cat')).to eq(2)
+    end
+  end
+
+  describe '#add_service' do
+    it 'can add a service and the cost to groomers list of services' do
+      @furry_tails.add_service(:bath, 20)
+      @furry_tails.add_service(:cut, 40)
+      @furry_tails.add_service(:full_groom, 55)
+
+      expect(@furry_tails.services).to eq({ bath: 20, cut: 40, full_groom: 55 })
+    end
+  end
+
+  describe '#add_charge' do
+    it 'can add a charge with type, cost, customer, and pet' do
+      @furry_tails.add_service(:bath, 20)
+      @furry_tails.add_service(:cut, 40)
+      @furry_tails.add_service(:full_groom, 55)
+      @furry_tails.add_charge(:bath, @joel, @samson)
+
+      expect(@furry_tails.charges).to eq([{ type: :bath, cost: 20, customer: @joel, pet: @samson }])
     end
   end
 end
