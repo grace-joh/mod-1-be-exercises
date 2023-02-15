@@ -18,4 +18,23 @@ RSpec.describe Groomer do
       expect(friends_furever.customers).to eq([])
     end
   end
+
+  describe '#add_customer' do
+    before(:each) do
+      @furry_tails = Groomer.new('Furry Tails')
+      @joel = Customer.new("Joel", 2)
+      @samson = Pet.new({name: "Samson", type: :dog, age: 3})
+      @lucy = Pet.new({name: "Lucy", type: :cat, age: 12})
+      @chris = Customer.new("Chris", 3)
+      @joel.adopt(@samson)
+      @chris.adopt(@lucy)
+    end
+
+    it 'can add customer to customers array' do
+      @furry_tails.add_customer(@joel)
+      @furry_tails.add_customer(@chris)
+
+      expect(@furry_tails.customers).to eq([@joel, @chris])
+    end
+  end
 end
