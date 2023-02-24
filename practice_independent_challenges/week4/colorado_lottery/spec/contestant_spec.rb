@@ -19,4 +19,10 @@ RSpec.describe Game do
       expect(@alexander.spending_money).to eq(10)
     end
   end
+
+  describe '#full_name' do
+    it 'joins first and last name' do
+      expect(@alexander.full_name).to eq('Alexander Aigiades')
+    end
+  end
 end
