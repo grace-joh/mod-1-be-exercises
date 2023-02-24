@@ -12,4 +12,8 @@ class Contestant
     @state_of_residence = contestant_details.fetch(:state_of_residence, nil)
     @spending_money = contestant_details.fetch(:spending_money, nil)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
