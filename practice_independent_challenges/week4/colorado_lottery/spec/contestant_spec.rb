@@ -39,4 +39,14 @@ RSpec.describe Game do
       expect(@alexander.full_name).to eq('Alexander Aigiades')
     end
   end
+
+  describe '#out_of_state?' do
+    it 'returns false if contestant is from CO' do
+      expect(@alexander.out_of_state?).to be false
+    end
+
+    it 'returns true if contestant is not from CO' do
+      expect(@leo.out_of_state?).to be true
+    end
+  end
 end
