@@ -22,6 +22,7 @@ RSpec.describe Game do
       expect(@alexander.age).to eq(28)
       expect(@alexander.state_of_residence).to eq('CO')
       expect(@alexander.spending_money).to eq(10)
+      expect(@alexander.game_interests).to eq([])
     end
 
     it 'can create another contestant' do
@@ -31,6 +32,7 @@ RSpec.describe Game do
       expect(@leo.age).to eq(18)
       expect(@leo.state_of_residence).to eq('TX')
       expect(@leo.spending_money).to eq(8)
+      expect(@leo.game_interests).to eq([])
     end
   end
 
