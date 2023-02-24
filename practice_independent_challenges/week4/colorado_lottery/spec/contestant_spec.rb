@@ -51,4 +51,13 @@ RSpec.describe Game do
       expect(@leo.out_of_state?).to be true
     end
   end
+
+  describe '#add_game_interest' do
+    it 'adds game to array of game interests' do
+      @alexander.add_game_interest('Mega Millions')
+      @alexander.add_game_interest('Pick 4')
+
+      expect(@alexander.game_interests).to eq(['Mega Millions', 'Pick 4'])
+    end
+  end
 end
