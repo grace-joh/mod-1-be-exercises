@@ -36,4 +36,12 @@ class Curator
     end
     artist_list
   end
+
+  def photos_by_country(country)
+    photo_list = []
+    list_all_artists_with_photos.each do |artist, photos_array|
+      photo_list << photos_array if artist.country == country
+    end
+    photo_list.flatten
+  end
 end
