@@ -5,7 +5,7 @@ RSpec.describe Curator do
   let(:photo1) do
     Photograph.new({ id: '1',
                      name: 'Rue Mouffetard, Paris (Boy with Bottles)',
-                     artist_id: '4',
+                     artist_id: '1',
                      year: '1954' })
   end
   let(:photo2) do
@@ -13,6 +13,12 @@ RSpec.describe Curator do
                      name: 'Moonrise, Hernandez',
                      artist_id: '2',
                      year: '1941' })
+  end
+  let(:photo3) do
+    Photograph.new({ id: '3',
+                     name: 'Monolith, The Face Of Half Dome, Yosemite Valley',
+                     artist_id: '2',
+                     year: '1927' })
   end
   let(:artist1) do
     Artist.new({ id: '1',
@@ -62,6 +68,21 @@ RSpec.describe Curator do
 
       expect(curator.find_artist_by_id('1')).to eq(artist1)
       expect(curator.find_artist_by_id('2')).to eq(artist2)
+    end
+  end
+
+  describe '#list_all_artists_with_photos' do
+    it 'lists all artists with their photos' do
+      curator.add_artist(artist1)
+      curator.add_artist(artist2)
+      curator.add_photograph(photo1)
+      curator.add_photograph(photo2)
+      curator.add_photograph(photo3)
+
+      expect(curator.list_all_artists_with_photos).to eq(
+        { artist1 => [photo1],
+          artist2 => [photo2, photo3] }
+      )
     end
   end
 end
