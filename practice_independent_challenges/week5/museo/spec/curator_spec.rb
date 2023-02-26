@@ -54,4 +54,14 @@ RSpec.describe Curator do
       expect(curator.artists).to eq([artist1, artist2])
     end
   end
+
+  describe '#find_artist_by_id' do
+    it 'finds the artist by id' do
+      curator.add_artist(artist1)
+      curator.add_artist(artist2)
+
+      expect(curator.find_artist_by_id('1')).to eq(artist1)
+      expect(curator.find_artist_by_id('2')).to eq(artist2)
+    end
+  end
 end
