@@ -38,11 +38,20 @@ RSpec.describe Curator do
   end
 
   describe '#add_photograph' do
-    it 'exists' do
+    it 'adds photo to photographs array' do
       curator.add_photograph(photo1)
       curator.add_photograph(photo2)
 
       expect(curator.photographs).to eq([photo1, photo2])
+    end
+  end
+
+  describe '#add_artist' do
+    it 'adds artist to artists array' do
+      curator.add_artist(artist1)
+      curator.add_artist(artist2)
+
+      expect(curator.artists).to eq([artist1, artist2])
     end
   end
 end
