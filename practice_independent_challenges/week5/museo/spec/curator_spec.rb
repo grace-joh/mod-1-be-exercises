@@ -36,4 +36,13 @@ RSpec.describe Curator do
       expect(curator.artists).to eq([])
     end
   end
+
+  describe '#add_photograph' do
+    it 'exists' do
+      curator.add_photograph(photo1)
+      curator.add_photograph(photo2)
+
+      expect(curator.photographs).to eq([photo1, photo2])
+    end
+  end
 end
