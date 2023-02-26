@@ -20,4 +20,10 @@ RSpec.describe Artist do
       expect(artist.country).to eq('United States')
     end
   end
+
+  describe '#age_at_death' do
+    it 'returns integer age of death' do
+      expect(artist.age_at_death).to eq(82)
+    end
+  end
 end
