@@ -85,4 +85,16 @@ RSpec.describe Curator do
       )
     end
   end
+
+  describe '#list_artists_with_multiple_photos' do
+    it 'lists artists with more than one photo' do
+      curator.add_artist(artist1)
+      curator.add_artist(artist2)
+      curator.add_photograph(photo1)
+      curator.add_photograph(photo2)
+      curator.add_photograph(photo3)
+
+      expect(curator.list_artists_with_multiple_photos).to eq(['Ansel Adams'])
+    end
+  end
 end
