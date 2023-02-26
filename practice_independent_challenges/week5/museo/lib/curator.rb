@@ -17,4 +17,15 @@ class Curator
   def find_artist_by_id(id)
     @artists.find { |artist| artist.id == id }
   end
+
+  def list_all_artists_with_photos
+    list_all = {}
+    @artists.each do |artist|
+      list_all[artist] = []
+      @photographs.each do |photo|
+        list_all[artist] << photo if photo.artist_id == artist.id
+      end
+    end
+    list_all
+  end
 end
