@@ -97,4 +97,17 @@ RSpec.describe Curator do
       expect(curator.list_artists_with_multiple_photos).to eq(['Ansel Adams'])
     end
   end
+
+  describe '#photos_by_country' do
+    it 'lists photos that are taken by artist from given country' do
+      curator.add_artist(artist1)
+      curator.add_artist(artist2)
+      curator.add_photograph(photo1)
+      curator.add_photograph(photo2)
+      curator.add_photograph(photo3)
+
+      expect(curator.photos_by_country('France')).to eq([photo1])
+      expect(curator.photos_by_country('United States')).to eq([photo2, photo3])
+    end
+  end
 end
