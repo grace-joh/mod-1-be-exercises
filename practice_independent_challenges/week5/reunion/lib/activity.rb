@@ -15,7 +15,7 @@ class Activity
   end
 
   def split
-    total_cost / @participants.size
+    (total_cost.to_f / @participants.size).round(2)
   end
 
   def owed

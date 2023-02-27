@@ -31,10 +31,11 @@ RSpec.describe Activity do
 
   describe '#split' do
     it 'returns the average amount paid among all participants' do
-      activity.add_participant('Maria', 20)
-      activity.add_participant('Luther', 40)
+      activity.add_participant('Grace', 20)
+      activity.add_participant('Rebekah', 40)
+      activity.add_participant('Christine', 20)
 
-      expect(activity.split).to eq(30)
+      expect(activity.split).to eq(26.67)
     end
   end
 
