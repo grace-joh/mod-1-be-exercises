@@ -34,4 +34,35 @@ class Reunion
       end
     end
   end
+
+  def print_detailed_summary
+    puts "#{@name} Reunion Detailed Summary"
+    detailed_summary_hash.each do |participant, activity_hash|
+      puts "- #{participant} -"
+      activity_hash.each do |activity, amount_owed|
+        if amount_owed > 0
+          puts "#{activity}: You owe $#{'%.2f' % amount_owed}"
+        elsif amount_owed < 0
+          puts "#{activity}: You are owed $#{'%.2f' % -amount_owed}"
+        else
+          puts "#{activity}: You're good!"
+        end
+      end
+    end
+  end
+
+  def detailed_summary_hash
+    details = {}
+    @activities.each do |activity|
+      activity.participants.each do |participant|
+        details[participant[0]] = {}
+      end
+    end
+    @activities.each do |activity|
+      activity.participants.each do |participant|
+        details[participant[0]][activity.name] = activity.split - participant[1]
+      end
+    end
+    details
+  end
 end
