@@ -2,11 +2,11 @@ require './lib/dog'
 
 RSpec.describe Dog do
 
-  it "can exist as an instance" do
+  xit "can exist as an instance" do
     fluffy = Dog.new("Fluffy")
   end
 
-  xit "can bark" do
+  it "can bark" do
     fluffy = Dog.new("Fluffy")
     expect(fluffy.bark).to eq("Fluffy goes Bark!")
   end

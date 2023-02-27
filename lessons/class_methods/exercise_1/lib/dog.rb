@@ -1,8 +1,8 @@
-#require 'barkable'
-require 'pry'
+require 'barkable'
+# require 'pry'
 
 class Dog
-  #include Barkable
+  include Barkable
 
   attr_reader :name, :number_of_woofs
   def initialize(name)
