@@ -1,4 +1,6 @@
 require 'rspec'
+require 'csv'
 require './lib/photograph'
 require './lib/artist'
 require './lib/curator'
+require './lib/file_io'

@@ -110,4 +110,22 @@ RSpec.describe Curator do
       expect(curator.photos_by_country('United States')).to eq([photo2, photo3])
     end
   end
+
+  describe '#load_photos' do
+    it 'loads photo data from a given source' do
+      source = './data/photographs.csv'
+      curator.load_photos(source)
+
+      expect(curator.photographs.size).to eq(4)
+    end
+  end
+
+  describe '#load_artists' do
+    it 'loads photo data from a given source' do
+      source = './data/artists.csv'
+      curator.load_artists(source)
+
+      expect(curator.artists.size).to eq(6)
+    end
+  end
 end

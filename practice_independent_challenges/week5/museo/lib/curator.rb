@@ -1,3 +1,5 @@
+require 'file_io'
+
 class Curator
   attr_reader :photographs, :artists
 
@@ -43,5 +45,19 @@ class Curator
       photo_list << photos_array if artist.country == country
     end
     photo_list.flatten
+  end
+
+  def load_photos(file_path)
+    FileIO.photos_from(file_path).each do |photo_object|
+      @photographs << photo_object
+    end
+    @photographs
+  end
+
+  def load_artists(file_path)
+    FileIO.artists_from(file_path).each do |artist_object|
+      @artists << artist_object
+    end
+    @artists
   end
 end
